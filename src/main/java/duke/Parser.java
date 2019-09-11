@@ -13,6 +13,7 @@ import duke.exception.InvalidInputDukeException;
 import duke.exception.InvalidTaskDukeException;
 
 import duke.task.Deadline;
+import duke.task.DoAfter;
 import duke.task.Event;
 import duke.task.Task;
 import duke.task.ToDo;
@@ -51,6 +52,7 @@ public class Parser {
 			case "todo":
 			case "deadline":
 			case "event":
+			case "doafter":
 				return createAddCommand(fullCommand);
 			default:
 				throw new InvalidInputDukeException();
@@ -100,6 +102,16 @@ public class Parser {
 			String atTime = taskAtTime[1];
 			taskToAdd = new Event(eventTask, atTime);
 			break;
+		case "doafter":
+			String taskAfter[];
+			if (theTask == null) {
+				taskAfter = new String[]{null, null};
+			} else {
+				taskAfter = Arrays.copyOf(theTask.split(" /after ", 2), 2);
+			}
+			String doAfterTask = taskAfter[0];
+			String after = taskAfter[1];
+			taskToAdd = new DoAfter(doAfterTask, after);
 		default:
 			break;
 		}

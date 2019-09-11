@@ -48,7 +48,7 @@ public class Event extends Task {
 	 */
 	@Override
 	public String toString() {
-		StringBuilder stringBuilder = new StringBuilder("[E]");
+		StringBuilder stringBuilder = new StringBuilder("[Event]");
 		stringBuilder.append(super.toString());
 		stringBuilder.append(" (");
 		stringBuilder.append(DateTime.create(atTime));

@@ -35,7 +35,8 @@ public class Ui {
 		} else if (e instanceof EmptyTaskDukeException) {
 			return String.format("OOPS!!! The description of a %s cannot be empty.", e.getMessage());
 		} else if (e instanceof InvalidTaskDukeException) {
-			return String.format("OOPS!!! Invalid input! Make sure your %s has a description and /at or /by.", e.getMessage());
+			return String.format("OOPS!!! Invalid input! Make sure your %s has a description and /at, /by or /after.",
+					e.getMessage());
 		} else {
 			return e.getMessage(); // for undeclared exceptions
 		}
